@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/*
+ * Healthy NSI Design System — Foundation Tokens
+ * ------------------------------------------------------------------
+ * All color, spacing, radius and shadow values used across the product
+ * are defined here as CSS custom properties, never hardcoded in
+ * components. This is what makes dark mode a variable swap instead of
+ * a component rewrite, and future white-labeling a config change
+ * instead of a redesign.
+ *
+ * Palette notes:
+ * - `--brand-*` is the botanical-green brand ramp used for primary
+ *   actions, links and brand accents.
+ * - `--neutral-*` is a warm, near-black neutral ramp used for text,
+ *   surfaces and borders (deliberately not pure gray — pure gray reads
+ *   cold and clinical in a way that undercuts the "premium, human"
+ *   feel we want).
+ * - Semantic colors (success/warning/error/info) are intentionally a
+ *   different hue family from the brand green. Reusing brand green for
+ *   "success" would overload it — the brand color needs to keep a
+ *   single, consistent meaning ("this is an action"), separate from
+ *   status meaning ("this succeeded").
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Brand ramp — botanical green */
+  --brand-50: #eefbf6;
+  --brand-100: #d6f3e6;
+  --brand-200: #ade7ce;
+  --brand-300: #7dd5b2;
+  --brand-400: #4ebd94;
+  --brand-500: #2d9d78;
+  --brand-600: #1f7e62;
+  --brand-700: #1c6552;
+  --brand-800: #195243;
+  --brand-900: #153f35;
+  --brand-950: #0b241f;
+
+  /* Neutral ramp — warm near-black, not pure gray */
+  --neutral-0: #ffffff;
+  --neutral-50: #fafafa;
+  --neutral-100: #f2f3f3;
+  --neutral-200: #e5e7e7;
+  --neutral-300: #d1d5d5;
+  --neutral-400: #a3aaaa;
+  --neutral-500: #7a8282;
+  --neutral-600: #5b6363;
+  --neutral-700: #424949;
+  --neutral-800: #2b3130;
+  --neutral-900: #1a1e1d;
+  --neutral-950: #111318;
+
+  /* Semantic colors — deliberately distinct from brand green */
+  --success: #16a34a;
+  --success-subtle: #eafbf1;
+  --warning: #d97706;
+  --warning-subtle: #fef6e7;
+  --error: #dc2626;
+  --error-subtle: #fdedec;
+  --info: #2563eb;
+  --info-subtle: #eaf1fe;
+
+  /* Surface tokens — light theme */
+  --background: var(--neutral-0);
+  --foreground: var(--neutral-950);
+  --card: var(--neutral-0);
+  --card-foreground: var(--neutral-950);
+  --popover: var(--neutral-0);
+  --popover-foreground: var(--neutral-950);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-600);
+  --border: var(--neutral-200);
+  --input: var(--neutral-200);
+  --ring: var(--brand-500);
+
+  --primary: var(--brand-600);
+  --primary-foreground: var(--neutral-0);
+  --primary-hover: var(--brand-700);
+  --primary-subtle: var(--brand-50);
+
+  --destructive: var(--error);
+  --destructive-foreground: var(--neutral-0);
+
+  /* Radius scale */
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+
+  /* Elevation — soft, low-opacity, never a heavy drop shadow */
+  --shadow-sm: 0 1px 2px 0 rgb(17 19 24 / 0.04);
+  --shadow-md: 0 2px 8px -2px rgb(17 19 24 / 0.08), 0 1px 2px -1px rgb(17 19 24 / 0.04);
+  --shadow-lg: 0 8px 24px -4px rgb(17 19 24 / 0.1), 0 2px 6px -2px rgb(17 19 24 / 0.05);
+}
+
+.dark {
+  --background: #0b0d0f;
+  --foreground: var(--neutral-50);
+  --card: #121417;
+  --card-foreground: var(--neutral-50);
+  --popover: #121417;
+  --popover-foreground: var(--neutral-50);
+  --muted: #1a1d21;
+  --muted-foreground: var(--neutral-400);
+  --border: #23262b;
+  --input: #23262b;
+  --ring: var(--brand-400);
+
+  --primary: var(--brand-500);
+  --primary-foreground: var(--neutral-950);
+  --primary-hover: var(--brand-400);
+  --primary-subtle: #10231d;
+
+  --destructive: #f04a4a;
+  --destructive-foreground: var(--neutral-950);
+
+  --success-subtle: #0f2a1b;
+  --warning-subtle: #2b220d;
+  --error-subtle: #2b1414;
+  --info-subtle: #101f33;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.24);
+  --shadow-md: 0 2px 8px -2px rgb(0 0 0 / 0.36), 0 1px 2px -1px rgb(0 0 0 / 0.2);
+  --shadow-lg: 0 8px 24px -4px rgb(0 0 0 / 0.44), 0 2px 6px -2px rgb(0 0 0 / 0.24);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-subtle: var(--primary-subtle);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-error: var(--error);
+  --color-error-subtle: var(--error-subtle);
+  --color-info: var(--info);
+  --color-info-subtle: var(--info-subtle);
+
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "cv11" 1,
+      "ss01" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Tabular figures everywhere numbers are compared — macros, measurements,
+     prices. Misaligned digits are a small thing that reads as unpolished. */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
