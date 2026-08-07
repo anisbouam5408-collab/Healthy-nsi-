@@ -26,7 +26,7 @@ export default function AppLayout() {
   const navItem = NAV_ITEMS.find((item) => item.to === location.pathname)
   if (navItem?.ownerOnly && !isOwner) return <Navigate to="/" replace />
 
-  const title = TITLES[location.pathname] ?? 'رونق'
+  const title = TITLES[location.pathname] ?? 'نكام كوسميتيك'
 
   return (
     <div className="flex min-h-screen bg-ink-50">

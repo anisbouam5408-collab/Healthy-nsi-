@@ -45,7 +45,7 @@ export function Sidebar() {
       <div className="flex-1 overflow-y-auto py-2">
         <NavItems />
       </div>
-      <p className="px-5 py-4 text-[11px] text-ink-400">رونق © {new Date().getFullYear()}</p>
+      <p className="px-5 py-4 text-[11px] text-ink-400">نكام كوسميتيك © {new Date().getFullYear()}</p>
     </aside>
   )
 }

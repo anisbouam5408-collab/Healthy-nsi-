@@ -1,8 +1,8 @@
 {
-  "name": "rawnaq",
+  "name": "nkam-cosmetics",
   "private": true,
   "version": "1.0.0",
-  "description": "Rawnaq — نظام تسيير محلات مستحضرات التجميل: مخزون، نقطة بيع، زبائن وتقارير",
+  "description": "Nkam Cosmetics — نظام تسيير محلات مستحضرات التجميل: مخزون، نقطة بيع، زبائن وتقارير",
   "type": "module",
   "scripts": {
     "dev": "vite",

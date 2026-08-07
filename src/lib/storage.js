@@ -1,4 +1,4 @@
-const PREFIX = 'rawnaq:v1:'
+const PREFIX = 'nkam-cosmetics:v1:'
 
 export function loadState(key, fallback) {
   try {

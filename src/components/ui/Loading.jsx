@@ -14,7 +14,7 @@ export function Spinner({ className = 'h-5 w-5', label = 'جارِ التحمي�
 
 Spinner.propTypes = { className: PropTypes.string, label: PropTypes.string }
 
-export function FullPageLoading({ label = 'جارِ تحميل رونق…' }) {
+export function FullPageLoading({ label = 'جارِ تحميل نكام كوسميتيك…' }) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-3 bg-ink-50">
       <Spinner className="h-8 w-8" />
