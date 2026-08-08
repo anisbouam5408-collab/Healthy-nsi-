@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>نكام كوسميتيك</title>
+    <!--
+      GitHub Pages has no server-side router, so a refresh or direct link on
+      a client-side route (e.g. /pos) 404s. This redirects it back to
+      index.html with the path packed into the query string; index.html's
+      inline script (see below) unpacks it before React Router mounts.
+      Standard trick: https://github.com/rafgraph/spa-github-pages
+    -->
+    <script>
+      var segmentCount = 1 // number of path segments to keep as the base (repo name)
+      var l = window.location
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname
+            .split('/')
+            .slice(0, 1 + segmentCount)
+            .join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(segmentCount)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      )
+    </script>
+  </head>
+  <body></body>
+</html>
