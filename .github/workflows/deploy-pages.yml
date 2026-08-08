@@ -9,8 +9,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  # Needed once, to auto-create the Pages site itself (enablement: true below).
-  administration: write
 
 concurrency:
   group: pages
